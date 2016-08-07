@@ -273,8 +273,13 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 - 「明度（Feedback Brightness）」の値を変更して、フィードバック画像の明度変換を設定します。
 
 
+-----
+
 <div align="center">
-<img src="http://www.siliconstudio.co.jp/common/images/logo001.svg" width="120" height="24" />
+
+    <a href="http://www.siliconstudio.co.jp/en/" target="_blank">
+    <img src="http://www.siliconstudio.co.jp/common/images/logo001.svg" width="200" border="0" alt="yebis_logo" hspace="5" /></a><br>
+
 <br>
 (c)Silicon Studio Corp., all rights reserved.
 </div>

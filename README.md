@@ -1,6 +1,7 @@
 # YEBIS
 
-![](http://www.siliconstudio.co.jp/en/products-service/yebis/images/index_il001b.png)
+[![](http://www.siliconstudio.co.jp/en/products-service/yebis/images/index_il001b.png)](http://www.siliconstudio.co.jp/middleware/yebis/en/)
+
 
 **YEBIS a post-effects middleware solution**
 
@@ -29,7 +30,10 @@ Comming soon.
 -----
 
 <div align="center">
-<img src="http://www.siliconstudio.co.jp/common/images/logo001.svg" width="120" height="24" />
+
+    <a href="http://www.siliconstudio.co.jp/en/" target="_blank">
+    <img src="http://www.siliconstudio.co.jp/common/images/logo001.svg" width="200" border="0" alt="yebis_logo" hspace="5" /></a><br>
+
 <br>
 (c)Silicon Studio Corp., all rights reserved.
 </div>
