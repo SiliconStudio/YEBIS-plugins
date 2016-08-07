@@ -10,7 +10,7 @@ YEBIS is middleware that enables such post-effects.
 
 # Help Support YEBIS plugins
 
-If you would like to help supportus, ...
+If you would like to help support us, you can use [GitHub issues](https://github.com/SiliconStudio/YEBIS-plugins/issues)!
 
 # Plugin
 
