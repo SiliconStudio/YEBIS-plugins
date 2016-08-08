@@ -8,11 +8,10 @@
 Briefly explained, post-effects are visual effects added during post-processing to a frame that has already been fully rendered in order to enrich its visuals. Although not unlike the process of retouching photos taken with a digital camera, post-effects used in real-time graphics employ a special algorithm for retouching, and generating effects in real-time.
 YEBIS is middleware that enables such post-effects.
 
-# Help Support YEBIS plugins
 
-If you would like to help support us, you can use [GitHub issues](https://github.com/SiliconStudio/YEBIS-plugins/issues)!
 
-# Plugin
+
+# Plugin Documentation
 
 We are supplying to Maya and Unity Plugin.
 
@@ -21,7 +20,12 @@ We are supplying to Maya and Unity Plugin.
 
 ## Pckages
 
-[YEBIS for Unity (beta) Free Trial Version](https://siliconstudio.github.io/YebisForUnityBeta/)
+- [YEBIS for Unity (beta) Free Trial Version](https://siliconstudio.github.io/YebisForUnityBeta/)
+
+# Help Support YEBIS plugins
+
+If you would like to help support us, you can use [GitHub issues](https://github.com/SiliconStudio/YEBIS-plugins/issues)!
+
 
 # Roadmap/Milestones
 
