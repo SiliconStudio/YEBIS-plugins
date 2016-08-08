@@ -57,7 +57,7 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 "Edit" > "Project Settings" > "Player"
 1. "Auto Graphics APIs"のチェックボックスを外す  
 ”Android Settings” or "iOS Settings" > "Auto Graphics APIs"
-1. ”＋”を押して”OpenGL3”,もしくは”OpenGL2”を選択し,ドラッグをしてGraphics API上部に配置  
+1. ”＋”を押して”OpenGLES3”,もしくは”OpenGLES2”を選択し,ドラッグをしてGraphics API上部に配置  
 [<img src="figure/applyYEBIS_GLES.png" width="300pt">](figure/applyYEBIS_GLES.png)
 
 > OpenGLES2を利用した場合,一部ポストエフェクトが制限されています。  
