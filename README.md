@@ -16,8 +16,8 @@ If you would like to help support us, you can use [GitHub issues](https://github
 
 We are supplying to Maya and Unity Plugin.
 
-- YEBIS for Maya
 - [YEBIS for Unity](Yebis4Unity.md "YEBIS for Unity") / [(jp)](Yebis4Unity.ja.md "日本語版")
+- YEBIS for Maya (documentation is in progress)
 
 ## Pckages
 
