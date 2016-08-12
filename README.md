@@ -15,7 +15,7 @@ YEBIS is middleware that enables such post-effects.
 
 We are supplying to Maya and Unity Plugin.
 
-- [YEBIS for Unity](Yebis4Unity.md "YEBIS for Unity") / [(jp)](Yebis4Unity.ja.md "日本語版")
+- [YEBIS for Unity](Yebis4Unity.md "YEBIS for Unity")  /  [日本語版](Yebis4Unity.ja.md "日本語版")
 - YEBIS for Maya (documentation is in progress)
 
 # Packages
