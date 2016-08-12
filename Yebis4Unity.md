@@ -17,11 +17,11 @@ _YEBIS for Unity_ is the Unity plugin provides a variety of middleware "YEBIS" r
 # Apply YEBIS
 ## Adding Component
 1. Import YEBIS.unitypackage  
-"Assets" > "Import Package" > "Custom Package..." > "YEBIS.unitypackage"  
+**Assets** > **Import Package** > **Custom Package...** > **YEBIS.unitypackage**  
 [<img src="figure/applyYEBIS_add1.png" width="200pt">](figure/applyYEBIS_add1.png)
 1. Select MainCamera from Hierarchy  
 1. Add YEBIS Component  
-"Component" > "YEBIS" > "YebisPostEffects"  
+**Component** > **YEBIS** > **YebisPostEffects**  
 [<img src="figure/applyYEBIS_add2.png" width="200pt">](figure/applyYEBIS_add2.png)
 1. Open Inspactor window and check the box of YebisPostEffects  
 
@@ -33,17 +33,17 @@ Currently YEBIS for Unity supports some Graphics APIs.
 
 ### Change Graphics API for Windows
 1. Open Player Settings  
-"Edit" > "Project Settings" > "Player"
+**Edit** > **Project Settings** > **Player**
 1. Uncheck the "Auto Graphics API for Windows"  
-"Settings for PC, Mac & Linux Standalone" > "Other Settings" > "Auto Graphics API for Windows"
+**Settings for PC, Mac & Linux Standalone** > **Other Settings** > **Auto Graphics API for Windows**
 1. Click "+" and select "OpenGL2", then drag "OpenGL2" to the top  
 [<img src="figure/applyYEBIS_GL2.png" width="300pt">](figure/applyYEBIS_GL2.png)
 
 ### Change Graphics API for Android and iOS
 1. Open Player Settings  
-"Edit" > "Project Settings" > "Player"
+**Edit** > **Project Settings** > **Player**
 1. Uncheck the "Auto Graphics APIs"  
-"Settings for Android" or "Settings for iOS" > "Other Settings" > "Auto Graphics API"
+**Settings for Android** or **Settings for iOS** > **Other Settings** > **Auto Graphics API**
 1. Click "+" and select "OpenGLES3" or "OpenGLES2", then drag it to the top  
 [<img src="figure/applyYEBIS_GLES.png" width="300pt">](figure/applyYEBIS_GLES.png)
 
