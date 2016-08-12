@@ -59,56 +59,130 @@ Currently YEBIS for Unity supports some Graphics APIs.
 # Parameters of YEBIS
 [<img src="figure/UI_all.png" width="300pt">](figure/UI_all.png)
 ## YEBIS
+![](figure/UI_general.png)
 ### Enable YEBIS
+- Check "Enable YEBIS.
+
 ### Enable Full Screen Anti-Alias
+- Check "Enable FXAA".
+
 ## Tonemap
+![](figure/UI_Tonemap.png)
 ### Exposure
+- Uncheck "Auto Exposure".
+- You can change the scene exposure directly by changing the value of "Exposure".
+
 ### Enable Auto Exposure
+- Check "Auto Exposure".
+- Change the value of "Middle Gray". Middle Gray is the target brightness.
+- **GLES2 is not supported**
+
 ## Glare
+![](figure/UI_Glare.png)
 ### Enable Glare
+
 ### Glare Shape
+
 ### Glare Luminance
+
 ### Glare Threshold
+- **GLES2 is not supported**
+
 ### Glare Remap Factor
+- **GLES2 is not supported**
+
 ### Enable LightShaft
+- **GLES2 is not supported**
+
 ### LightShaft Position
+- **GLES2 is not supported**
+
 ### LightShaft Parameters
+- **GLES2 is not supported**
+
 ## Depth Of Field
+![](figure/UI_DoF.png)
 ### Enable Depth Of Field
+
 ### Aperture Shape
+- **GLES2 is not supported**
+
 ### Bokeh Parameters
+
 ### Enable Auto Focus
+- **GLES2 is not supported**
+
 ### Focus Distance
 ## Lens Simulation
+![](figure/UI_LensSim.png)
+- **GLES2 is not supported**
+
 ### Enable Lens Distortion
+
 ### Enable Anamorphic Lens Effect
+
 ### Vignetting
+
 ### Vignette Effect
+
 ### Vignette Simulation
+
 ## Motion Blur
+![](figure/UI_MotionBlur.png)
+- **GLES2 is not supported**
+
 ### Enable Motion Blur
+
 ### Shutter Angle
+
 ### Blur Length
+
 ## Screen Space Ambient Occlusion
+![](figure/UI_SSAO.png)
+- **GLES2 is not supported**
+
 ### Enable SSAO
+
 ### SSAO Parameters
+
 ## Color Correction
+![](figure/UI_ColorCorrection.png)
+
 ### Hue
+
 ### Saturation
+
 ### Contrast
+
 ### Brightness
+
 ### Sepia
+
 ### Color Temperature
+
 ### White Balance
+
 ### Gamma
+- **GLES2 is not supported**
+
 ## Feedback Effect
+![](figure/UI_FeedbackEffect.png)
+- **GLES2 is not supported**
+
 ### Enable Feedback Effect
+
 ### Feedback Weight
+
 ### Feedback Rotation
+
 ### Feedback Scaling
+
 ### Feedback Hue
+
 ### Feedback Saturation
+
 ### Feedback Contrast
+
 ### Feedback Brightness
 
 
