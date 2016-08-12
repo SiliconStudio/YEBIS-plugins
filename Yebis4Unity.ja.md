@@ -30,7 +30,7 @@ Unityでレンダリングしたシーンに「YEBIS」のポストエフェク�
 # <a name="YEBIS_apply"> YEBISプラグインの適用
 ## Componentの追加
 1. プロジェクトにYEBIS.unitypackageをインポート  
-"Assets" > "Inport Package" > "Custom Package..." > "YEBIS.unitypackage"  
+"Assets" > "Import Package" > "Custom Package..." > "YEBIS.unitypackage"  
 [<img src="figure/applyYEBIS_add1.png" width="200pt">](figure/applyYEBIS_add1.png)
 1. HierarchyよりMainCameraを選択
 1. Yebisプラグインを追加  
@@ -45,19 +45,19 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 - OpenGLES2 (Android/iOS)
 
 ### Windows版でのGraphics APIの設定
-1. PlayerSettingsを開く  
+1. Player Settingsを開く  
 "Edit" > "Project Settings" > "Player"
 1. "Auto Graphics API for Windows"のチェックボックスを外す  
-”PC, Mac & Linux　Standalone Settings” > "Auto Graphics API for Windows"
+"Settings for PC, Mac & Linux Standalone" > "Auto Graphics API for Windows"
 1. ”＋”を押して”OpenGL2”を選択し,ドラッグをしてGraphics API上部に配置  
 [<img src="figure/applyYEBIS_GL2.png" width="300pt">](figure/applyYEBIS_GL2.png)
 
 ### Android,iOS版でのGraphics APIの設定
-1. PlayerSettingsを開く  
+1. Player Settingsを開く  
 "Edit" > "Project Settings" > "Player"
 1. "Auto Graphics APIs"のチェックボックスを外す  
-”Android Settings” or "iOS Settings" > "Auto Graphics APIs"
-1. ”＋”を押して”OpenGLES3”,もしくは”OpenGLES2”を選択し,ドラッグをしてGraphics API上部に配置  
+"Settings for Android" or "Settings for iOS" > "Auto Graphics API"
+1. "＋"を押して"OpenGLES3",もしくは"OpenGLES2"を選択し,ドラッグをしてGraphics API上部に配置  
 [<img src="figure/applyYEBIS_GLES.png" width="300pt">](figure/applyYEBIS_GLES.png)
 
 > OpenGLES2を利用した場合,一部ポストエフェクトが制限されています。  
@@ -266,7 +266,7 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 - 「明度（Brightness）」の値を変更して明度変換を設定します。
 
 ### セピア調の効果
-- 「セピア調変換（ToneEffect）」の値を変更してセピア調変換のかかり方の強さを設定します。
+- 「セピア調変換（Sepia）」の値を変更してセピア調変換のかかり方の強さを設定します。
 
 ### 色温度の設定
 - 「色温度（Temperature）」の値を変更して色温度をケルビン度で設定します。
@@ -275,7 +275,7 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 - 「ホワイトバランス（White Balance）」の値を変更してホワイトバランスの補正目標の色温度をケルビン度で設定します。
 
 ### ガンマ補正の設定
-- 「ガンマ補正（Gamma Value）」の値を変更してガンマ補正を設定します。
+- 「ガンマ補正（Gamma）」の値を変更してガンマ補正を設定します。
 - **GLES2では無効**
 
 
@@ -285,7 +285,7 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 - **GLES2では無効**
 
 ### フィードバックエフェクトの有効化
-- 「フィードバックエフェクトの有効化（Feedback Effects）」をチェックしてフィードバックエフェクトを有効化します。
+- 「フィードバックエフェクトの有効化（Enable Feedback Effect）」をチェックしてフィードバックエフェクトを有効化します。
 
 ### フィードバックエフェクトの強さの設定
 - 「強さ（Feedback Weight）」の値を変更して、フィードバック画像の重みを設定します。
