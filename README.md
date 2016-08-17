@@ -24,8 +24,8 @@ We are supplying to Maya and Unity Plugin.
 
 # Help Support YEBIS plugins
 
+[![GitHub:YEBIS-plugins](https://img.shields.io/badge/github%3A-issues-blue.svg?style=flat-square)](https://github.com/SiliconStudio/YEBIS-plugins/issues)  
 If you would like to help support us, you can use [GitHub issues](https://github.com/SiliconStudio/YEBIS-plugins/issues)!
-
 
 # Roadmap/Milestones
 
