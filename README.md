@@ -22,9 +22,6 @@ We are supplying to Maya and Unity Plugin.
 
 - [YEBIS for Unity (beta) Free Trial Version](https://siliconstudio.github.io/YebisForUnityBeta/)
 
-- The latest release information:  
-[https://github.com/SiliconStudio/YEBIS-plugins/releases](https://github.com/SiliconStudio/YEBIS-plugins/releases)
-
 # Help Support YEBIS plugins
 
 [![GitHub:YEBIS-plugins](https://img.shields.io/badge/github%3A-issues-blue.svg?style=flat-square)](https://github.com/SiliconStudio/YEBIS-plugins/issues)  
@@ -33,6 +30,12 @@ If you would like to help support us, you can use [GitHub issues](https://github
 # Roadmap/Milestones
 
 Comming soon.
+
+# Release information
+
+- The latest release information:  
+[https://github.com/SiliconStudio/YEBIS-plugins/releases](https://github.com/SiliconStudio/YEBIS-plugins/releases)
+
 
 -----
 
