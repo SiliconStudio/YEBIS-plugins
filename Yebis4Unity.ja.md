@@ -40,7 +40,7 @@ Unityでレンダリングしたシーンに「YEBIS」のポストエフェク�
 
 ## Graphics APIの設定
 YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りです。
-- OpenGL2 (WindowsPC)
+- OpenGLCore (Windows/MacOSX 64bit)
 - OpenGLES3 (Android/iOS)
 - OpenGLES2 (Android/iOS)
 
@@ -49,8 +49,15 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 "Edit" > "Project Settings" > "Player"
 1. "Auto Graphics API for Windows"のチェックボックスを外す  
 "Settings for PC, Mac & Linux Standalone" > "Auto Graphics API for Windows"
-1. ”＋”を押して”OpenGL2”を選択し,ドラッグをしてGraphics API上部に配置  
-[<img src="figure/applyYEBIS_GL2.png" width="300pt">](figure/applyYEBIS_GL2.png)
+1. ”＋”を押して”OpenGLCore”を選択し,ドラッグをしてGraphics API上部に配置  
+[<img src="figure/applyYEBIS_GLCore.png" width="300pt">](figure/applyYEBIS_GLCore.png)
+
+### MaxOSX版でのGraphics APIの設定
+1. Player Settingsを開く  
+"Edit" > "Project Settings" > "Player"
+1. "Auto Graphics API for Mac"のチェックボックスを外す  
+"Settings for PC, Mac & Linux Standalone" > "Auto Graphics API for Mac"
+1. ”＋”を押して”OpenGLCore”を選択し,ドラッグをしてGraphics API上部に配置  
 
 ### Android,iOS版でのGraphics APIの設定
 1. Player Settingsを開く  
@@ -67,8 +74,9 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 - UnityのMain CameraのHDRが有効化されていると,YEBIS内部のポストエフェクトもHDRモードとなり,クォリティが向上します。
 - OpenGLES2ではYEBIS内部のHDRモードは無効化されます。
 	- OpenGLES3でも16bit浮動小数点テクスチャに未対応のデバイスの場合はYEBISのHDRモードは無効化されます。
-- HDRモードとLDRモードではポストエフェクトの値(例:グレアの明るさ)の表現が異なるものとなります。  
+- **HDRモードとLDRモードではポストエフェクトの値(例:グレアの明るさ)の表現が異なるものとなります。**  
 そのため,利用するデバイスに合わせてMain CameraのHDRを有効化してからYEBISのパラメータを設定してください。
+- HDRモードの使えるデバイスであるならば,Main CameraのHDRモードをONにしてください。
 
 # <a name="YEBIS_setting"> YEBISプラグインのパラメータ設定
 [<img src="figure/UI_all.png" width="300pt">](figure/UI_all.png)
@@ -142,17 +150,18 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 ### ライトシャフトの効果の制御
 - 以下のパラメータでライトシャフトの見た目を調整することができます。
     - 光源の色（Color）
+    - 光芒の強さ（Scale）
     - 光芒の長さ（Length）
     - グレアの影響度（Glare Ratio）
-    - 遮蔽マスクの距離（Mast Threshold）
+    - 遮蔽マスクへのバイアス値（Mast Bias）
     - 角度減衰率（Angle Attenuation）
     - 乱数マスクの強さ（Noise Mask）
     - 乱数マスクの細かさ（Noise Frequency）
+    - 回折リング以外の色（Outer Color）
     - 回折リングの強さ（Diffraction Ring）
     - 回折リングの角度（Diffraction Ring Radius）
     - 回折リングの減衰率（Diffraction Ring Attenuation）
     - 回折リングの方向（Diffraction Ring Order）
-    - リング以外の色（Outer Color）
 - **GLES2では無効**
 
 ## <a name="YEBIS_setting_DoF"> 被写界深度の設定
@@ -244,12 +253,15 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 - 「SSAOの有効化（Enable SSAO）」をチェックしてSSAOを有効化します。
 
 ### SSAOの効果の設定
+- 「色（Color）」の値を変更して、SSAOの色を設定します。
 - 「サンプル数（Samples）」の値を変更して、SSAOのサンプル数を設定します。値を大きくするとSSAOの品質は高くなります。16～25程度の値が高速で無難な結果になります。
 - 「サンプル半径（Sample Radius）」の値を変更して、SSAOのサンプルの物理半径を設定します。
-- 「サンプル半径（Sample Radius）」の値はシーンの作業単位で設定します。
-- 大きな値を設定するほど広い範囲を解析しますが、サンプリングはその分まばらになるため正確な判定が難しくなります。
+    - 「サンプル半径（Sample Radius）」の値はシーンの作業単位で設定します。
+    - 大きな値を設定するほど広い範囲を解析しますが、サンプリングはその分まばらになるため正確な判定が難しくなります。
 - 「強さ（Scale）」の値を変更して、SSAOのかかり方の強さを設定します。0.0を指定するとSSAOは無効になります。
 - 「コントラスト（Contrast）」の値を変更して、SSAOのかかり方のコントラストを設定します。0.0を指定するとSSAOは無効になります。
+- 「バイアス（Bias）」の値を変更して、SSAOの閉塞度合へのバイアスを設定します。
+- 「閾値（Epsilon）」の値を変更して、SSAOのかかる閾値を設定します。
 
 ## <a name="YEBIS_setting_ColorCorrection"> 色調変換の設定
 ![](figure/UI_ColorCorrection.png)
