@@ -27,7 +27,7 @@ _YEBIS for Unity_ is the Unity plugin provides a variety of middleware "YEBIS" r
 
 ## Configure Graphics API
 Currently YEBIS for Unity supports some Graphics APIs.
-- OpenGL2 (WindowsPC)
+- OpenGLCore (Windows/MacOSX 64bit)
 - OpenGLES3 (Android/iOS)
 - OpenGLES2 (Android/iOS)
 
@@ -36,8 +36,15 @@ Currently YEBIS for Unity supports some Graphics APIs.
 **Edit** > **Project Settings** > **Player**
 1. Uncheck the "Auto Graphics API for Windows"  
 **Settings for PC, Mac & Linux Standalone** > **Other Settings** > **Auto Graphics API for Windows**
-1. Click "+" and select "OpenGL2", then drag "OpenGL2" to the top  
-[<img src="figure/applyYEBIS_GL2.png" width="300pt">](figure/applyYEBIS_GL2.png)
+1. Click "+" and select "OpenGLCore", then drag "OpenGLCore" to the top  
+[<img src="figure/applyYEBIS_GLCore.png" width="300pt">](figure/applyYEBIS_GLCore.png)
+
+### Change Graphics API for MacOSX
+1. Open Player Settings  
+**Edit** > **Project Settings** > **Player**
+1. Uncheck the "Auto Graphics API for Mac"  
+**Settings for PC, Mac & Linux Standalone** > **Other Settings** > **Auto Graphics API for Mac**
+1. Click "+" and select "OpenGLCore", then drag "OpenGLCore" to the top  
 
 ### Change Graphics API for Android and iOS
 1. Open Player Settings  
@@ -54,7 +61,7 @@ Currently YEBIS for Unity supports some Graphics APIs.
 - If you check "HDR" box of Main Camera, post effects of YEBIS are processed in high quality HDR mode.
 - If you select OpenGLES2, YEBIS are always processed in non-HDR mode.
   - If you select OpenGLES3 and the runtime device does not support 16bit floating texture format, YEBIS are processed in non-HDR mode.
-- There are differences in the appearance of post effects between HDR and non-HDR (ex. luminance of Glare effect)
+- **There are differences in the appearance of post effects between HDR and non-HDR (ex. luminance of Glare effect)**
 
 # Parameters of YEBIS
 [<img src="figure/UI_all.png" width="300pt">](figure/UI_all.png)
