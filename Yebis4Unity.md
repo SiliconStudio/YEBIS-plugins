@@ -68,29 +68,52 @@ Currently YEBIS for Unity supports some Graphics APIs.
 ## YEBIS
 ![](figure/UI_general.png)
 ### Enable YEBIS
-- Check "Enable YEBIS.
+- Check **Enable YEBIS**.
 
 ### Enable Full Screen Anti-Alias
-- Check "Enable FXAA".
+- Check **Enable FXAA**.
 
 ## Tonemap
 ![](figure/UI_Tonemap.png)
 ### Exposure
-- Uncheck "Auto Exposure".
-- You can change the scene exposure directly by changing the value of "Exposure".
+- Uncheck **Auto Exposure**.
+- You can change the scene exposure directly by changing the value of **Exposure**.
 
 ### Enable Auto Exposure
-- Check "Auto Exposure".
-- Change the value of "Middle Gray". Middle Gray is the target brightness.
+- Check **Auto Exposure**.
+- You can change the target brightness of Auto Exposure by changing the value of **Middle Gray**.
+- Change the value of **Middle Gray**. Middle Gray is the target brightness.
 - **GLES2 is not supported**
 
 ## Glare
 ![](figure/UI_Glare.png)
 ### Enable Glare
+- Check **Enable Glare**.
+- Specifying higher values increases glare quality.
 
 ### Glare Shape
+- Set the glare shape from preset types.
+
+|                        Type | Glare Shape                                                             |
+| --------------------------- | ----------------------------------------------------------------------- |
+| DISABLE                     | No glare                                                                |
+| BLOOM                       | Only bloom                                                              |
+| LENSFLARE                   | Bloom / ghost(lens flare) / afterimage<br/>_**GLES2 is not supported**_ |
+| STANDARD                    | The standard type including a good balance of all basic elements        |
+| CHEAPLENS                   | Sharp ghosting and other representations of a cheap lens                |
+| AFTERIMAGE                  | Very strong afterimage<br/>_**GLES2 is not supported**_                 |
+| FILTER_CROSSSCREEN          | Cross screen filter. Lens with generator of cross-shaped star filter attached |
+| FILTER_CROSSSCREEN_SPECTRAL | Cross screen filter with strong spectrum. Lens with generator of cross-shaped star filter with strong spectrum attached |
+| FILTER_SNOWCROSS            | Snow cross filter. Lens with generator of star filter in six directions attached<br/>_**GLES2 is not supported**_ |
+| FILTER_SNOWCROSS_SPECTRAL   | Snow cross filter with strong spectrum. Lens with generator of star filter with strong spectrum in six directions attached<br/>_**GLES2 is not supported**_ |
+| FILTER_SUNNYCROSS           | Sunny cross filter. Lens with generator of star filter in eight directions attached<br/>_**GLES2 is not supported**_ |
+| FILTER_SUNNYCROSS_SPECTRAL  | Sunny cross filter with strong spectrum. Lens with generator of star filter with strong spectrum in eight directions attached<br/>_**GLES2 is not supported**_ |
+| HORIZONTALSTREAK            | Horizontal flare. This lens flare type produces strong horizontal star streaks. Simple anamorphic lens flare effect |
+| VERTICALSTREAK              | Vertical flare. Strong star streaks in the vertical direction. Smears for CCD digital camera, etc |
+
 
 ### Glare Luminance
+- You can change the overall brightness of the glare effect by changing the value of **Luminance**.
 
 ### Glare Threshold
 - **GLES2 is not supported**
@@ -110,6 +133,8 @@ Currently YEBIS for Unity supports some Graphics APIs.
 ## Depth Of Field
 ![](figure/UI_DoF.png)
 ### Enable Depth Of Field
+- Check **Enable DoF**.
+- Specifying higher values increases the depth-of-field effect quality.
 
 ### Aperture Shape
 - **GLES2 is not supported**
