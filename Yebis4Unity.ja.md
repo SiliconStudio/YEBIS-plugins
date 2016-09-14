@@ -5,6 +5,11 @@
 - [YEBIS for Unity Document](#yebis-for-unity-document)
 - [概要](#abstruct)
 - [YEBISプラグインの適用](#YEBIS_apply)
+    - [Componentの追加](#YEBIS_apply_component)
+    - [Graphics APIの設定](#YEBIS_apply_graphics)
+        - [Windows版でのGraphics APIの設定](#YEBIS_apply_graphics_win)
+        - [MaxOSX版でのGraphics APIの設定](#YEBIS_apply_graphics_osx)
+        - [Android,iOS版でのGraphics APIの設定](#YEBIS_apply_graphics_mobile)
 - [YEBISプラグインのパラメータ設定](#YEBIS_setting)
 	- [YEBISプラグインの機能全般の設定](#YEBIS_setting_general)
 	- [トーンマップの設定](#YEBIS_setting_Tonemap)
@@ -15,9 +20,11 @@
 	- [SSAO（Screen Space Ambient Occlusion）の設定](#YEBIS_setting_SSAO)
 	- [色調変換の設定](#YEBIS_setting_ColorCorrection)
 	- [フィードバックエフェクトの設定](#YEBIS_setting_FeedbackEffect)
+	- [色収差エフェクトの設定](#YEBIS_setting_ChromaticAberration)
+	- [イメージセンサーノイズの設定](#YEBIS_setting_ImageSensorNoise)
 
 
-# <a name="abstruct"> 概要
+# <a name="abstruct"> 概要 </a>
 |YEBIS適用前|YEBIS適用後|
 |---|---|
 |![](figure/beforeYEBIS.png)|![](figure/afterYEBIS.png)|
@@ -27,8 +34,8 @@ Unityでレンダリングしたシーンに「YEBIS」のポストエフェク�
 
 > 「YEBIS」の光の効果やピンボケ等の高品質な画像処理エフェクトをポストエフェクトと呼びます。
 
-# <a name="YEBIS_apply"> YEBISプラグインの適用
-## Componentの追加
+# <a name="YEBIS_apply">YEBISプラグインの適用 </a>
+## <a name="YEBIS_apply_component">Componentの追加</a>
 1. プロジェクトにYEBIS.unitypackageをインポート  
 "Assets" > "Import Package" > "Custom Package..." > "YEBIS.unitypackage"  
 [<img src="figure/applyYEBIS_add1.png" width="200pt">](figure/applyYEBIS_add1.png)
@@ -38,13 +45,18 @@ Unityでレンダリングしたシーンに「YEBIS」のポストエフェク�
 [<img src="figure/applyYEBIS_add2.png" width="200pt">](figure/applyYEBIS_add2.png)
 1. InspectorからYebisPostEffectsのチェックボックスをONにする
 
-## Graphics APIの設定
+## <a name="YEBIS_apply_graphics">Graphics APIの設定</a>
 YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りです。
+- DirectX11 (Windows 64bit)
 - OpenGLCore (Windows/MacOSX 64bit)
 - OpenGLES3 (Android/iOS)
 - OpenGLES2 (Android/iOS)
 
-### Windows版でのGraphics APIの設定
+### <a name="YEBIS_apply_graphics_win">Windows版でのGraphics APIの設定</a>
+Windows版ではGraphics APIとしてDirectX11とOpenGLCoreが利用できます。  
+UnityのWindowsのデフォルトのGraphics APIはDirectX11であるため、特に問題が無ければ設定の必要なくYEBISを利用できます。  
+Windows版でOpenGLCoreを利用する場合の設定は以下の通りです。
+#### Windows版でOpenGLCoreを利用する場合の設定
 1. Player Settingsを開く  
 "Edit" > "Project Settings" > "Player"
 1. "Auto Graphics API for Windows"のチェックボックスを外す  
@@ -52,14 +64,14 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 1. ”＋”を押して”OpenGLCore”を選択し,ドラッグをしてGraphics API上部に配置  
 [<img src="figure/applyYEBIS_GLCore.png" width="300pt">](figure/applyYEBIS_GLCore.png)
 
-### MaxOSX版でのGraphics APIの設定
+### <a name="YEBIS_apply_graphics_osx">MaxOSX版でのGraphics APIの設定</a>
 1. Player Settingsを開く  
 "Edit" > "Project Settings" > "Player"
 1. "Auto Graphics API for Mac"のチェックボックスを外す  
 "Settings for PC, Mac & Linux Standalone" > "Auto Graphics API for Mac"
 1. ”＋”を押して”OpenGLCore”を選択し,ドラッグをしてGraphics API上部に配置  
 
-### Android,iOS版でのGraphics APIの設定
+### <a name="YEBIS_apply_graphics_mobile">Android,iOS版でのGraphics APIの設定</a>
 1. Player Settingsを開く  
 "Edit" > "Project Settings" > "Player"
 1. "Auto Graphics APIs"のチェックボックスを外す  
@@ -80,7 +92,7 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 
 # <a name="YEBIS_setting"> YEBISプラグインのパラメータ設定
 [<img src="figure/UI_all.png" width="300pt">](figure/UI_all.png)
-## <a name="YEBIS_setting_general"> YEBISプラグインの機能全般の設定
+## <a name="YEBIS_setting_general"> YEBISプラグインの機能全般の設定</a>
 ![](figure/UI_general.png)
 ### YEBISプラグインのポストエフェクトの有効化
 - 「YEBISの有効化（Enable YEBIS）」をチェックしてYEBISプラグインのポストエフェクトを有効化します。
@@ -88,7 +100,7 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 ### フルスクリーンアンチエイリアスの有効化
 - 「FXAAの有効化（Enable FXAA）」をチェックしてフルスクリーンアンチエイリアスを有効化します。
 
-## <a name="YEBIS_setting_Tonemap"> トーンマップの設定
+## <a name="YEBIS_setting_Tonemap"> トーンマップの設定</a>
 ![](figure/UI_Tonemap.png)
 ### 露出値の設定
 - 「自動露出調整（Auto Exposure）」のチェックをはずします。
@@ -100,8 +112,14 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 - 「自動露出の明るさ（Middle Gray）」の値を変更して、自動露出調整の目標とする画面の明るさを設定できます。
 - **GLES2では無効**
 
+### 感光シミュレーションの設定
+- 感光シミュレーションの特性曲線を設定します。
+- 「コントラスト（Filmic Contrast）」の値を変更して、全体的なコントラストを設定します。  
+高い値を指定するほど、黒潰れや白飛びが発生しやすくなります。
+- **GLES2では無効**
 
-## <a name="YEBIS_setting_Glare"> グレアの設定
+
+## <a name="YEBIS_setting_Glare"> グレアの設定</a>
 ![](figure/UI_Glare.png)
 ### グレアの有効化
 - 「グレアの有効化（Enable Glare）」をチェックしてグレアを有効化します。
@@ -112,7 +130,6 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 
 |                       タイプ | グレア形状                                                                         |
 | --------------------------- | ---------------------------------------------------------------------------------- |
-| DISABLE                     | グレア無効                                                                         |
 | BLOOM                       | ブルームのみ                                                                       |
 | LENSFLARE                   | ブルーム,ゴースト（レンズフレア）,残像を含んだタイプ<br/>_**GLES2では無効**_       |
 | STANDARD                    | 基本的な要素を全てバランス良く含んだタイプ                                         |
@@ -154,7 +171,6 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
     - 光芒の強さ（Scale）
     - 光芒の長さ（Length）
     - グレアの影響度（Glare Ratio）
-    - 遮蔽マスクへのバイアス値（Mast Bias）
     - 角度減衰率（Angle Attenuation）
     - 乱数マスクの強さ（Noise Mask）
     - 乱数マスクの細かさ（Noise Frequency）
@@ -165,25 +181,22 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
     - 回折リングの方向（Diffraction Ring Order）
 - **GLES2では無効**
 
-## <a name="YEBIS_setting_DoF"> 被写界深度の設定
+## <a name="YEBIS_setting_DoF"> 被写界深度の設定</a>
 ![](figure/UI_DoF.png)
 ### 被写界深度エフェクト（ピンボケ）の有効化
 - 「被写界深度エフェクト（Enable Dof）」をチェックして被写界深度効果を有効化します。
 - 「品質（Quality）」の値を高くするほど品質の高いボケ表現が可能になります。
-- デバイスによって品質の上限値は異なります。
+- デバイスによって品質の上限値は異なります。  
+PCプラットフォームならば13まで,モバイルならば10までの品質を利用できます。
 
-### ボケ味の形状の設定
-- 「絞り羽根フィルタ（Aperture Shape）」からカメラの絞りフィルタの種別を選択します
-- **GLES2では無効**
-
-|             タイプ | ボケ味の形状                                                       |
-| ------------------ |------------------------------------------------------------------- |
-| PFXAPS_AUTO        | 自動選択. 品質（Quality）の値を参照して自動設定する                |
-| PFXAPS_DISC        | 円形のフラットな絞り形状. 現実のカメラに近いフラットな円い絞り形状 |
-| PFXAPS_GAUSSIAN    | 円形の、端ほど滑らかに減衰する絞り形状                             |
-| PFXAPS_SQUARE      | 正方形絞り形状                                                     |
-| PFXAPS_HEXAGON     | 六角形絞り形状, 性能優先                                           |
-| PFXAPS_HEXAGONFLAT | 六角形絞り形状, 画質優先                                           |
+#### ボケ味シミュレーション
+「品質（Quality）」の値が11以上の時,ボケ味シミュレーションを利用することができます。
+- 「絞り羽根枚数(Bokeh Blades)」の値を変更して、絞りを構成する羽根の枚数を設定します。
+- 「円形絞りの度合(Bokeh Circularity)」の値を変更して、ボケの円形度合いを設定します。
+- 「レンズのタイプ（Bokeh Averration）」を指定してボケ味のタイプを設定します。
+- 「収差の強さ[Bokeh Longitudinal Aberration]」の値を変更して、前ボケ後ボケの特徴の強さを設定します。
+- 「ピンボケに対する口径食（Optical Vignetting）」をチェックして口径食のシミュレーションを有効化します。  
+レモンボケ、キャッツアイエフェクト等とも呼ばれます。*（後述のレンズディストーションがSimulationモードのときのみ有効となります）*
 
 ### ボケ具合の制御
 - 「フィルムサイズ（Film Size）」の値を変更して感光素子（フィルム、デジタルカメラのイメージセンサに相当）の縦サイズを設定します。
@@ -193,15 +206,21 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
     - 例えば35mmフィルムの縦サイズである24mmを設定する場合、シーンの作業単位がcmであれば2.4(cm)を設定します。
 - 「絞りのＦナンバー（Aperture F-number）」の値を変更して絞りのＦナンバーを設定します。
 
-### オートフォーカスの有効化
-- 「オートフォーカス（Auto Focus）」をチェックしてオートフォーカスを有効化します。
-- **GLES2では無効**
+### フォーカスモード
+- 「フォーカスモード（Focus Mode）」からフォーカスのタイプを選択します。
 
-### フォーカス距離の手動設定
-- 「オートフォーカス（Auto Focus）」のチェックをはずします。
-- 「フォーカス距離（Focus Distance）」の値を変更して、フォーカス距離を直接設定することができます。
+|              タイプ | フォーカスモード             |
+| ------------------- | ----------------------- |
+| Manual        | 手動設定モード             　|
+| AutoFocus     | オートフォーカスモード         |
+| ObjectFocus 　| オブジェクトフォーカスモード 　　|
+- Manualモードでは手動で「フォーカス距離（Focus Distance）」の値を直接設定します。
+- AutoFocusモードでは「オートフォーカスの測距点(Auto Focus Position)」で指定された画面上の位置に対してオートフォーカスを行います。  
+**GLES2では無効**
+- ObjectFocusモードでは、指定した「オブジェクト(Focus Object)」までの距離を計算してフォーカス距離に利用します。
 
-## <a name="YEBIS_setting_LensSim"> レンズシミュレーションの設定
+
+## <a name="YEBIS_setting_LensSim"> レンズシミュレーションの設定</a>
 ![](figure/UI_LensSim.png)
 - **GLES2では無効**  
 
@@ -217,9 +236,9 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 
 |              タイプ | 周辺減光エフェクト                 |
 | ------------------- | ---------------------------------- |
-| VIGNETTE_OFF        | 周辺減光エフェクトなし             |
-| VIGNETTE_EFFECT     | 擬似的な周辺減光エフェクト         |
-| VIGNETTE_SIMULATION | 周辺減光の光学的なシミュレーション |
+| Off        | 周辺減光エフェクトなし             |
+| Effect     | 擬似的な周辺減光エフェクト         |
+| Simulation | 周辺減光の光学的なシミュレーション |
 
 ### 擬似的な周辺減光エフェクトの設定
 - 「周辺減光エフェクト（Vignette Mode）」を「VIGNETTE_EFFECT」に設定します。
@@ -231,40 +250,10 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 - 「イメージサークル（Image Circle）」の値を変更して、画像が明るく映る範囲のおおよその直径を設定します。画面の高さを1.0とした比率で設定します。
     - （より正確な説明）口径食を原因とする周辺減光により、輝度が半分まで落ちる円の直径を設定します。
 - 「半影の広さ（Penumbra Width）」の値を変更して、イメージサークルで明るい領域と暗い領域の境界にできる半影部分の帯の広さを設定します。1.0を設定すると半影部分は画面の中央まで届く幅になります。
-- 「ピンボケに対する口径食（Optical Vignetting）」をチェックして口径食のシミュレーションを有効化します。レモンボケ、キャッツアイエフェクト等とも呼ばれます。
+- 「被写界深度有効無効の無視(Ignore DoF)」のチェックを付けることで、被写界深度処理が無効であっても被写界深度エフェクトのパラメータの値を利用して周辺減光を行います。
 
-## <a name="YEBIS_setting_MotionBlur"> モーションブラーの設定
-![](figure/UI_MotionBlur.png)
-- **GLES2では無効**  
 
-### モーションブラーの有効化
-- 「モーションブラーの有効化（Enable Motion Blur）」をチェックしてモーションブラーを有効化します。
-
-### モーションブラーのシャッター角度の設定
-- 「時間比（Blur Time Ratio）」の値を変更して、1フレームあたりのシャッター開放時間の比率を設定します。1.0を設定すると、シャッター角度360度に相当するモーションブラーが発生します。
-
-### モーションブラーの長さの調節
-- 「最大の長さ（Max Blur Length）」の値を変更して、モーションブラーの最大の長さを制限することができます。画面の高さを1.0とした比率で設定します。
-
-## <a name="YEBIS_setting_SSAO"> SSAO（Screen Space Ambient Occlusion）の設定
-![](figure/UI_SSAO.png)
-- **GLES2では無効**
-
-### SSAOの有効化
-- 「SSAOの有効化（Enable SSAO）」をチェックしてSSAOを有効化します。
-
-### SSAOの効果の設定
-- 「色（Color）」の値を変更して、SSAOの色を設定します。
-- 「サンプル数（Samples）」の値を変更して、SSAOのサンプル数を設定します。値を大きくするとSSAOの品質は高くなります。16～25程度の値が高速で無難な結果になります。
-- 「サンプル半径（Sample Radius）」の値を変更して、SSAOのサンプルの物理半径を設定します。
-    - 「サンプル半径（Sample Radius）」の値はシーンの作業単位で設定します。
-    - 大きな値を設定するほど広い範囲を解析しますが、サンプリングはその分まばらになるため正確な判定が難しくなります。
-- 「強さ（Scale）」の値を変更して、SSAOのかかり方の強さを設定します。0.0を指定するとSSAOは無効になります。
-- 「コントラスト（Contrast）」の値を変更して、SSAOのかかり方のコントラストを設定します。0.0を指定するとSSAOは無効になります。
-- 「バイアス（Bias）」の値を変更して、SSAOの閉塞度合へのバイアスを設定します。
-- 「閾値（Epsilon）」の値を変更して、SSAOのかかる閾値を設定します。
-
-## <a name="YEBIS_setting_ColorCorrection"> 色調変換の設定
+## <a name="YEBIS_setting_ColorCorrection"> 色調変換の設定</a>
 ![](figure/UI_ColorCorrection.png)
 ### 色相の設定
 - 「色相（Hue）」の値を変更して色相変換を設定します。
@@ -292,7 +281,37 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 - **GLES2では無効**
 
 
-## <a name="YEBIS_setting_FeedbackEffect"> フィードバックエフェクトの設定
+## <a name="YEBIS_setting_MotionBlur"> モーションブラーの設定</a>
+![](figure/UI_MotionBlur.png)
+- **GLES2では無効**  
+
+### モーションブラーの有効化
+- 「モーションブラーの有効化（Enable Motion Blur）」をチェックしてモーションブラーを有効化します。
+
+### モーションブラーのシャッター角度の設定
+- 「時間比（Blur Time Ratio）」の値を変更して、1フレームあたりのシャッター開放時間の比率を設定します。1.0を設定すると、シャッター角度360度に相当するモーションブラーが発生します。
+
+### モーションブラーの長さの調節
+- 「最大の長さ（Max Blur Length）」の値を変更して、モーションブラーの最大の長さを制限することができます。画面の高さを1.0とした比率で設定します。
+
+## <a name="YEBIS_setting_SSAO"> SSAO（Screen Space Ambient Occlusion）の設定</a>
+![](figure/UI_SSAO.png)
+- **GLES2では無効**
+
+### SSAOの有効化
+- 「SSAOの有効化（Enable SSAO）」をチェックしてSSAOを有効化します。
+
+### SSAOの効果の設定
+- 「色（Color）」の値を変更して、SSAOの色を設定します。
+- 「サンプル数（Samples）」の値を変更して、SSAOのサンプル数を設定します。値を大きくするとSSAOの品質は高くなります。16～25程度の値が高速で無難な結果になります。
+- 「サンプル半径（Sample Radius）」の値を変更して、SSAOのサンプルの物理半径を設定します。
+    - 「サンプル半径（Sample Radius）」の値はシーンの作業単位で設定します。
+    - 大きな値を設定するほど広い範囲を解析しますが、サンプリングはその分まばらになるため正確な判定が難しくなります。
+- 「強さ（Scale）」の値を変更して、SSAOのかかり方の強さを設定します。0.0を指定するとSSAOは無効になります。
+- 「コントラスト（Contrast）」の値を変更して、SSAOのかかり方のコントラストを設定します。0.0を指定するとSSAOは無効になります。
+
+
+## <a name="YEBIS_setting_FeedbackEffect"> フィードバックエフェクトの設定</a>
 ![](figure/UI_FeedbackEffect.png)
 - フィードバック画像（前フレームまでの残像）を利用したエフェクトを設定することができます。
 - **GLES2では無効**
@@ -322,13 +341,37 @@ YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りで�
 - 「明度（Feedback Brightness）」の値を変更して、フィードバック画像の明度変換を設定します。
 
 
+## <a name="YEBIS_setting_ChromaticAberration">色収差エフェクトの設定</a>
+![](figure/UI_ChromaticAberration.png)
+- 色収差エフェクトを設定することでレンズの屈折による色ずれ表現を与えることができます。
+- **GLES2では無効**
+### 色収差エフェクトの有効化
+- 「色収差エフェクトの有効化（Enable Chromatic Aberration）」をチェックして色収差エフェクトを有効化します。
+### 色収差エフェクトを制御するパラメタの設定
+- 「波長のサンプル数（Samples）」を設定して、色収差を表現するためのサンプリングする波長の数を指定します。
+- 「倍率色収差の分散の強さ(Magnification Dispersion)」の値を変更して、収差の倍率の分散の強さを指定します。
+- 「一様な収差の分散の強さ(Uniform Dispersion)」の値を変更して、すべての位置で発生する収差の分散の強さを指定します。
+
+
+## <a name="YEBIS_setting_ImageSensorNoise">イメージセンサーノイズの設定</a>
+![](figure/UI_ImageSensorNoise.png)
+- カメラの撮像素子に生じるノイズによるエフェクトを設定できます。
+- **GLES2では無効**
+### イメージセンサーノイズの有効化
+- 「イメージセンサーノイズの有効化（Enable ImageSensor Noise）」をチェックしてイメージセンサーノイズを有効化します。
+### メージセンサーノイズを制御するパラメタの設定
+- 「ノイズの大きさ（GrainSize）」を設定して、撮像素子に生じるノイズの大きさを指定します。
+- 「乗算ノイズの強度（Multiplicative Noise Intensity）」を設定して、乗算ノイズの強さを指定します。
+- 「加算ノイズの強度（Additive Noise Intensity）」を設定して、加算ノイズの強さを指定します。
+- 「乗算ノイズの彩度（Multiplicative Noise Saturation）」を設定して、乗算ノイズの彩度を指定します。
+- 「加算ノイズの彩度（Additive Noise Saturation）」を設定して、加算ノイズの彩度を指定します。
+
 -----
 
 <div align="center">
-
-    <a href="http://www.siliconstudio.co.jp/en/" target="_blank">
-    <img src="http://www.siliconstudio.co.jp/common/images/logo001.svg" width="200" border="0" alt="yebis_logo" hspace="5" /></a><br>
-
+<a href="http://www.siliconstudio.co.jp/en/" target="_blank">
+<img src="http://www.siliconstudio.co.jp/common/images/logo001.svg" width="200" border="0" alt="yebis_logo" hspace="5" />
+</a><br>
 <br>
 (c)Silicon Studio Corp., all rights reserved.
 </div>

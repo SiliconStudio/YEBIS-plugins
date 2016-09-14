@@ -27,11 +27,17 @@ _YEBIS for Unity_ is the Unity plugin provides a variety of middleware "YEBIS" r
 
 ## Configure Graphics API
 Currently YEBIS for Unity supports some Graphics APIs.
+- DirectX11 (Windows 64bit)
 - OpenGLCore (Windows/MacOSX 64bit)
 - OpenGLES3 (Android/iOS)
 - OpenGLES2 (Android/iOS)
 
 ### Change Graphics API for Windows
+You can use DirectX11 and OpenGLCore as Unity of the Windows version.  
+Unity use DirectX11 in Windows version default setting.  
+So Graphics APIs setting is not necessary for Windows version YEBIS plugin.
+#### Change GLCore API for Windows
+If you need to change GLCore API,
 1. Open Player Settings  
 **Edit** > **Project Settings** > **Player**
 1. Uncheck the "Auto Graphics API for Windows"  
@@ -96,7 +102,6 @@ Currently YEBIS for Unity supports some Graphics APIs.
 
 |                        Type | Glare Shape                                                             |
 | --------------------------- | ----------------------------------------------------------------------- |
-| DISABLE                     | No glare                                                                |
 | BLOOM                       | Only bloom                                                              |
 | LENSFLARE                   | Bloom / ghost(lens flare) / afterimage<br/>_**GLES2 is not supported**_ |
 | STANDARD                    | The standard type including a good balance of all basic elements        |
@@ -159,24 +164,6 @@ Currently YEBIS for Unity supports some Graphics APIs.
 
 ### Vignette Simulation
 
-## Motion Blur
-![](figure/UI_MotionBlur.png)
-- **GLES2 is not supported**
-
-### Enable Motion Blur
-
-### Shutter Angle
-
-### Blur Length
-
-## Screen Space Ambient Occlusion
-![](figure/UI_SSAO.png)
-- **GLES2 is not supported**
-
-### Enable SSAO
-
-### SSAO Parameters
-
 ## Color Correction
 ![](figure/UI_ColorCorrection.png)
 
@@ -196,6 +183,24 @@ Currently YEBIS for Unity supports some Graphics APIs.
 
 ### Gamma
 - **GLES2 is not supported**
+
+## Motion Blur
+![](figure/UI_MotionBlur.png)
+- **GLES2 is not supported**
+
+### Enable Motion Blur
+
+### Shutter Angle
+
+### Blur Length
+
+## Screen Space Ambient Occlusion
+![](figure/UI_SSAO.png)
+- **GLES2 is not supported**
+
+### Enable SSAO
+
+### SSAO Parameters
 
 ## Feedback Effect
 ![](figure/UI_FeedbackEffect.png)
@@ -218,13 +223,20 @@ Currently YEBIS for Unity supports some Graphics APIs.
 ### Feedback Brightness
 
 
+## Chromatic Aberration
+![](figure/UI_ChromaticAberration.png)
+- **GLES2 is not supported**
+
+
+## ImageSensorNoise
+![](figure/UI_ImageSensorNoise.png)
+- **GLES2 is not supported**
+
 -----
 
 <div align="center">
-
-    <a href="http://www.siliconstudio.co.jp/en/" target="_blank">
-    <img src="http://www.siliconstudio.co.jp/common/images/logo001.svg" width="200" border="0" alt="yebis_logo" hspace="5" /></a><br>
-
+<a href="http://www.siliconstudio.co.jp/en/" target="_blank">
+<img src="http://www.siliconstudio.co.jp/common/images/logo001.svg" width="200" border="0" alt="yebis_logo" hspace="5" /></a><br>
 <br>
 (c)Silicon Studio Corp., all rights reserved.
 </div>
