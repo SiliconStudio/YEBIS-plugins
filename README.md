@@ -18,9 +18,9 @@ We are supplying to Maya and Unity Plugin.
 - [YEBIS for Unity](Yebis4Unity.md "YEBIS for Unity")  /  [日本語版](Yebis4Unity.ja.md "日本語版")
 - YEBIS for Maya (documentation is in progress)
 
-# Packages
+# Packages version
 
-- [YEBIS for Unity (beta) Free Trial Version](https://siliconstudio.github.io/YebisForUnityBeta/) 0.2.4
+- [YEBIS for Unity (beta) Free Trial Version](https://siliconstudio.github.io/YebisForUnityBeta/) 0.3.0
 
 # Help Support YEBIS plugins
 
