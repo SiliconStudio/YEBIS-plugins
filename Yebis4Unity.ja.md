@@ -40,11 +40,20 @@ Unityでレンダリングしたシーンに「YEBIS」のポストエフェク�
 "Assets" > "Import Package" > "Custom Package..." > "YEBIS.unitypackage"  
 [<img src="figure/applyYEBIS_add1.png" width="200pt">](figure/applyYEBIS_add1.png)
 1. HierarchyよりMainCameraを選択
-1. Yebisプラグインを追加  
-"Component" > "YEBIS" > "YebisPostEffects"  
-[<img src="figure/applyYEBIS_add2.png" width="200pt">](figure/applyYEBIS_add2.png)
-1. InspectorからYebisPostEffectsのチェックボックスをONにする
-
+1. YebisBehaviourをComponentより追加  
+"Component" > "YEBIS" > "YebisBehaviour"  
+[<img src="figure/applyYEBIS_add2.png" height="140pt">](figure/applyYEBIS_add2.png)
+[<img src="figure/applyYEBIS_add3.png" height="140pt">](figure/applyYEBIS_add3.png)
+1. YebisParameterの作成,適用
+    - 自動でシーンに対応したパラメータアセットを作成する場合
+        1. MainCameraのインスペクタのYebisBehaviourから"Create New Parameter"を選択  
+        [<img src="figure/applyYEBIS_add5.png" height="80pt">](figure/applyYEBIS_add5.png)
+    - 手動でパラメータアセットを作成する場合
+        1. YebisParamterのアセットを作成  
+        "Assets" > "Create" > "YEBIS" > "YebisParameter"  
+        [<img src="figure/applyYEBIS_add4.png" width="200pt">](figure/applyYEBIS_add4.png)
+        1. シーンのMainCameraに追加されたYebisBehaviourのインスペクタから、作成されたYebisParamerのアセットを選択
+        
 ## <a name="YEBIS_apply_graphics">Graphics APIの設定</a>
 YEBIS for Unity 評価版では利用可能なGraphics APIは以下の通りです。
 - DirectX11 (Windows 64bit)
@@ -94,14 +103,10 @@ Windows版でOpenGLCoreを利用する場合の設定は以下の通りです。
 
 
 # <a name="YEBIS_setting"> YEBISプラグインのパラメータ設定
-[<img src="figure/UI_all.png" width="300pt">](figure/UI_all.png)
-## <a name="YEBIS_setting_general"> YEBISプラグインの機能全般の設定</a>
-![](figure/UI_general.png)
-### YEBISプラグインのポストエフェクトの有効化
-- 「YEBISの有効化（Enable YEBIS）」をチェックしてYEBISプラグインのポストエフェクトを有効化します。
-
-### フルスクリーンアンチエイリアスの有効化
-- 「FXAAの有効化（Enable FXAA）」をチェックしてフルスクリーンアンチエイリアスを有効化します。
+[<img src="figure/UI_all.png" width="600pt">](figure/UI_all.png)
+- YEBISパラメータは,YebisBehaviourのインスペクタからYebisParameterのアセットを選択し,  
+"Edit Parameter”からYebisParameterのエディタウィンドウから編集できます
+- また,YebisParameterのアセットを選択することでインスペクタに表示されるエディタから直接パラメータを設定することもできます
 
 ## <a name="YEBIS_setting_Tonemap"> トーンマップの設定</a>
 ![](figure/UI_Tonemap.png)
@@ -163,21 +168,23 @@ Windows版でOpenGLCoreを利用する場合の設定は以下の通りです。
 - 「グレアの有効化（Enable Glare）」と「ライトシャフトの有効化（Light Shaft）」をチェックしてライトシャフト（ゴッドレイとも呼ばれます）を有効化します。
 - **GLES2では無効**
 
-### ライトシャフトの光源位置の制御
-- 「ライトシャフトの位置(Position)」で光源にしたいオブジェクトのTransformを選択します。
-- 接続したオブジェクトのスクリーン上の位置を光源とするライトシャフトが表示されます。
-- **GLES2では無効**
-
 ### ライトシャフトの効果の制御
 - 以下のパラメータでライトシャフトの見た目を調整することができます。
+    - 光源の位置（Position）
     - 光源の色（Color）
-    - 光芒の強さ（Scale）
     - 光芒の長さ（Length）
     - 角度減衰率（Angle Attenuation）
     - 乱数マスクの強さ（Noise Mask）
     - 乱数マスクの細かさ（Noise Frequency）
     - 回折リングの強さ（Diffraction Ring）
     - 回折リングの角度（Diffraction Ring Radius）
+- ヘルパースクリプトである,LightShaftFocuserをYebisBehaviourとともにCameraのコンポーネントに追加すると,
+シーン内の選択したオブジェクトの位置にライトシャフトをかけることができます。  
+    - "Component" > "YEBIS" > "Helper" > "LightShaftFocuser"  
+    ![](figure/UI_LightShaftFocuser.png)
+    - 「フォーカスオブジェクト (Look At)」を指定して,ライトシャフトの光源を指定します。
+    - 「オフセット (Z Offset)」を指定して,ライトシャフトの奥行き方向のオフセットを与えます。
+
 - **GLES2では無効**
 
 ## <a name="YEBIS_setting_DoF"> 被写界深度の設定</a>
@@ -208,15 +215,20 @@ PCプラットフォームならば13まで,モバイルならば10までの品�
 ### フォーカスモード
 - 「フォーカスモード（Focus Mode）」からフォーカスのタイプを選択します。
 
-|              タイプ  | フォーカスモード            |
+|              タイプ  | フォーカスモード         |
 | ------------------- | ----------------------- |
-| Manual              | 手動設定モード            |
-| AutoFocus           | オートフォーカスモード       |
-| ObjectFocus 　      | オブジェクトフォーカスモード   |
+| Manual              | 手動設定モード           |
+| AutoFocus           | オートフォーカスモード    |
+
 - Manualモードでは手動で「フォーカス距離（Focus Distance）」の値を直接設定します。
 - AutoFocusモードでは「オートフォーカスの測距点(Auto Focus Position)」で指定された画面上の位置に対してオートフォーカスを行います。  
 **GLES2では無効**
-- ObjectFocusモードでは、指定した「オブジェクト(Focus Object)」までの距離を計算してフォーカス距離に利用します。
+
+- ヘルパースクリプトである,CameraObjectFocuserをYebisBehaviourとともにCameraのコンポーネントに追加すると,
+シーン内の選択したオブジェクトの位置にオートフォーカスをかけることができます
+    - "Component" > "YEBIS" > "Helper" > "CameraObjectFocuser"  
+    ![](figure/UI_CameraObjectFocuser.png)
+    - 「フォーカスオブジェクト (Look At)」を指定して,フォーカスするオブジェクトを選択します
 
 
 ## <a name="YEBIS_setting_LensSim"> レンズシミュレーションの設定</a>
@@ -370,6 +382,12 @@ Unity5.3以前のバージョンではカメラが動く場合のモーション
 - 「加算ノイズの強度（Additive Noise Intensity）」を設定して、加算ノイズの強さを指定します。
 - 「乗算ノイズの彩度（Multiplicative Noise Saturation）」を設定して、乗算ノイズの彩度を指定します。
 - 「加算ノイズの彩度（Additive Noise Saturation）」を設定して、加算ノイズの彩度を指定します。
+
+## <a name="YEBIS_setting_general"> その他の設定</a>
+![](figure/UI_other.png)
+### フルスクリーンアンチエイリアスの有効化
+- 「FXAAの有効化（Enable FXAA）」をチェックしてフルスクリーンアンチエイリアスを有効化します。
+
 
 -----
 
