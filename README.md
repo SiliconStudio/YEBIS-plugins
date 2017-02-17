@@ -20,7 +20,7 @@ We are supplying to Maya and Unity Plugin.
 
 # Packages version
 
-- [YEBIS for Unity (beta) Free Trial Version](https://siliconstudio.github.io/YebisForUnityBeta/) 0.4.0
+- [YEBIS for Unity (beta) Free Trial Version](https://siliconstudio.github.io/YebisForUnityBeta/) 0.5.0
 
 # Help Support YEBIS plugins
 
